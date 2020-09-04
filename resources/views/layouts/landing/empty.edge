@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!-- SEO -->
+    <meta class="utf-8">
+    <title>LIGHT⚡NITE - EVENTS</title>
+    <meta name="description" content="Be part of our gaming events to be updated, receive free goodies, participate in bitcoin gaming tournaments and much more! 💛">
+    <meta name="keywords" content="LIGHTNITE, battleroyale">
+    <meta name="author" content="LIGHTNITE">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="author" content="LIGHTNITE" />
+    <meta name="publisher" content="LIGHTNITE" />
+    <meta name="copyright" content="&copy; Copyright (c) LIGHTNITE" />
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="content-language" content="en">
+    <meta name="language" content="en">
+    <meta name="page-topic" content="Gaming" />
+    <meta content="National" name="distribution" />
+    <meta content="EVENTS.LIGHTNITE.IO" name="target" />
+    <base href="https://events.lightnite.io">
+    <!-- Facebook Open Graph Information -->
+    <meta property="og:image" content="/assets/img/utils/twitter.png" />
+    <meta property="og:title" content="LIGHT⚡NITE - EVENTS" />
+    <meta property="og:description" content="Be part of our gaming events to be updated, receive free goodies, participate in bitcoin gaming tournaments and much more! 💛" />
+    <meta property="og:url" content="https://EVENTS.LIGHTNITE.IO" />
+    <meta property="og:site_name" content="LIGHTNITE" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="/assets/img/utils/gameplay/4.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lightnitegame" />
+    <meta name="twitter:creator" content="@lightnitegame" />
+    <meta name="twitter:description" content="Be part of our gaming events to be updated, receive free goodies, participate in bitcoin gaming tournaments and much more! 💛">
+    <meta name="twitter:image" content="https://events.lightnite.io/assets/img/utils/twitter.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link href="assets/css/loaders/loader-typing.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="assets/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="preload" as="font" href="assets/fonts/Inter-UI-upright.var.woff2" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="assets/fonts/Inter-UI.var.woff2" type="font/woff2" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/assets/img/utils/zap.png">
+    <link rel="icon" type="image/png"  href="/assets/img/utils/zap.png">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    {{ style('/assets/css/nucleo-icons.css')}}
+    {{ script('/assets/js/utils/jquery.js') }}
+    {{ style('/assets/css/utils/animate.css')}}
+    <script type="text/javascript" src="assets/js/popper.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    {{ script('/assets/js/utils/bootstrap-notify.js') }}
+  </head>
+  <body>
+    <div class="loader">
+      <div class="loading-animation"></div>
+    </div>
+    <script>
+     function showNotification(type, msg) {
+        let icon
+        if (type === "success") {
+            icon =  "tim-icons icon-check-2"
+        } else if (type === "info") {
+            icon =  "tim-icons icon-bulb-63"
+        } else if (type === "warning") {
+            icon = "tim-icons icon-alert-circle-exc"
+        } else if (type === "danger") {
+            icon = "tim-icons icon-simple-remove"
+        }
+        $.notify({
+          icon,
+          message: msg
+        }, {
+          type: type,
+          timer: 8000,
+          placement: {
+              from: "top",
+              align: "center"
+          }
+      });
+      }
+    </script>
+    @!section('content')
+    @include('layouts.landing.footer')
+    <!-- Loads <model-viewer> for modern browsers: -->
+    <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
+    </script>
+    <script src="https://buy.lightnite.io/modal/btcpay.js"></script>
+    <!-- Loads <model-viewer> for old browsers like IE11: -->
+    <script nomodule
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
+    </script>
+    <!-- AOS (Animate On Scroll - animates elements into view while scrolling down) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Clipboard (copies content from browser into OS clipboard) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <!-- Fancybox (handles image and video lightbox and galleries) -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <!-- Flatpickr (calendar/date/time picker UI) -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.js"></script>
+    <!-- Flickity (handles touch enabled carousels and sliders) -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
+    <!-- Ion rangeSlider (flexible and pretty range slider elements) -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+    <!-- Isotope (masonry layouts and filtering) -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+    <!-- jarallax (parallax effect and video backgrounds) -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jarallax/1.12.0/jarallax.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jarallax/1.12.0/jarallax-video.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jarallax/1.12.0/jarallax-element.min.js"></script>
+    <!-- jQuery Countdown (displays countdown text to a specified date) -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-fetcher/18.0.3/js/twitterFetcher_min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
+    <!-- jQuery smartWizard facilitates steppable wizard content -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smartwizard@4.4.1/dist/js/jquery.smartWizard.min.js"></script>
+    <!-- Plyr (unified player for Video, Audio, Vimeo and Youtube) -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.5.10/plyr.polyfilled.min.js"></script>
+    <!-- Prism (displays formatted code boxes) -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"></script>
+    <!-- ScrollMonitor (manages events for elements scrolling in and out of view) -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/scrollmonitor/1.2.0/scrollMonitor.js"></script>
+    <!-- Smooth scroll (animation to links in-page)-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.polyfills.min.js"></script>
+    <!-- SVGInjector (replaces img tags with SVG code to allow easy inclusion of SVGs with the benefit of inheriting colors and styles)-->
+    <script type="text/javascript" src="/assets/js/svg-injector.umd.production.js"></script>
+    <!-- Required theme scripts (Do not remove) -->
+    <script type="text/javascript" src="/assets/js/theme.js"></script>
+    <script src="https://js.stripe.com/v3"></script>
+    <!-- Removes page load animation when window is finished loading -->
+    <script type="text/javascript">
+      window.addEventListener("load", function () {    document.querySelector('body').classList.add('loaded');  });
+    </script>
+    {{ csrfField() }}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113853600-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113853600-4');
+  </script>
+  <!-- Hotjar Tracking Code for  -->
+<script defer>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:1729669,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.lightnite.io/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '6']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.lightnite.io/matomo.php?idsite=6&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
+<script>
+  (function(d,t) {
+    var BASE_URL = "https://chat.lightnite.io";
+    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src= BASE_URL + "/packs/js/sdk.js";
+    s.parentNode.insertBefore(g,s);
+    g.onload=function(){
+      window.chatwootSDK.run({
+        websiteToken: 'u8T6dj71MAsqRVFzCYeoYqNn',
+        baseUrl: BASE_URL
+      })
+    }
+  })(document,"script");
+</script>
+<!-- End Matomo Code -->
+  </body>
+</html>

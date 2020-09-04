@@ -1,0 +1,18 @@
+<section class="text-light jarallax" data-jarallax-video="https://www.youtube.com/watch?v=Sem9l2f_SKg" data-video-start-time="30" data-speed="0.2">
+  <div class="container">
+    <div class="row min-vh-80 align-items-center">
+      <div class="col text-center">
+          <img style="width:50%" src="/assets/img/utils/logo.png" alt="LIGHTNITE">
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  $(document).ready(function () {
+    $("#goToVideo").click(function () {
+        $('html, body').animate({
+            scrollTop: $("#video-section").offset().top
+        }, 1500);
+    });
+  });
+</script>

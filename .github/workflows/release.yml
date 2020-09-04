@@ -1,0 +1,104 @@
+name: Docker Deployment
+
+on:
+  push:
+    branches: [ master, events ]
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+  pull_request:
+    branches: [ develop ]
+jobs:
+  build_and_publish:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Get branch name
+      uses: nelonoel/branch-name@v1
+    - name: Prepare docker deployment
+      if: success() && github.event_name != 'pull_request'
+      id: prepare
+      run: |
+        # REPO_NAME=${{ github.repository }}
+        # PROJECT_NAME=echo $REPO_NAME | awk '{split($0,a,"/"); print a[2]}'
+        DOCKER_IMAGE="${{ secrets.DOCKER_REGISTRY }}/lightnite-trezor"
+        DOCKER_PLATFORMS=linux/amd64
+        VERSION=${BRANCH_NAME}
+
+        if [[ $GITHUB_REF == refs/tags/* ]]; then
+          VERSION=${GITHUB_REF#refs/tags/v}
+        fi
+        if [ "${{ github.event_name }}" = "schedule" ]; then
+          VERSION=nightly
+        fi
+
+        TAGS="--tag ${DOCKER_IMAGE}:${VERSION}"
+        DISPLAY_TAG="${DOCKER_IMAGE}:${VERSION}"
+        if [[ $VERSION =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
+          TAGS="$TAGS --tag ${DOCKER_IMAGE}:latest"
+        fi
+
+        echo ::set-output name=docker_image::${DOCKER_IMAGE}
+        echo ::set-output name=docker_tag::${DISPLAY_TAG}
+        echo ::set-output name=version::${VERSION}
+        echo ::set-output name=buildx_args::--platform ${DOCKER_PLATFORMS} \
+          --build-arg VERSION=${VERSION} \
+          --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
+          --build-arg VCS_REF=${GITHUB_SHA::8} \
+          ${TAGS} --file ./Dockerfile .
+    - name: Set up docker Buildx
+      if: success() && github.event_name != 'pull_request'
+      uses: crazy-max/ghaction-docker-buildx@v3
+    - name: BuildX docker image
+      if: success() && github.event_name != 'pull_request'
+      run: |
+        docker buildx build --output "type=image,push=false" ${{ steps.prepare.outputs.buildx_args }}
+    - name: Login to private registry
+      if: success() && github.event_name != 'pull_request'
+      uses: crazy-max/ghaction-docker-login@v1
+      with:
+        registry:  ${{ secrets.DOCKER_REGISTRY }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Publish docker image to private registry
+      if: success() && github.event_name != 'pull_request'
+      run: |
+        docker buildx build --output "type=image,push=true" ${{ steps.prepare.outputs.buildx_args }}
+    - name: Send alert to telegram
+      if: success() && github.event_name != 'pull_request'
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_ID }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        format: markdown
+        message: |
+          🖼️ gph.is/1Q6I81D
+
+          🚨 GitHub Actions Alert: [${{ github.repository }}](https://github.com/${{ github.repository }})  
+          
+          📦 New release available: *${{ steps.prepare.outputs.docker_tag }}* - a new docker image has been built and pushed to our private registry ready to be deployed.
+    # - name: Deploy to swarm
+    #   uses: sagebind/docker-swarm-deploy-action@v2
+    #   with:
+    #     remote_host: ssh://${{ secrets.SSH_URI }}
+    #     ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+    #     ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+    #     args: stack deploy --with-registry-auth --compose-file docker-compose.yml ${{ github.repository }}
+  
+  check_dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install node_modules
+      run: npm install 
+    - name: Run Snyk to check for vulnerabilities
+      uses: snyk/actions/node@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        command: monitor

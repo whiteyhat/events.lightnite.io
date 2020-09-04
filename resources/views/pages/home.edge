@@ -1,0 +1,506 @@
+@layout('layouts.landing.empty')
+{{--  Load content  --}}
+@section('content')
+{{ style('/assets/css/utils/home') }}
+<section class="text-light jarallax" data-jarallax-video="https://youtu.be/jIS8B7RNY0E" data-video-end-time="23" data-video-start-time="0"
+    data-speed="0.1">
+    <div class="container">
+        <div class="row min-vh-80 align-items-center">
+            <div class="col text-center">
+                <div class="p-4 row align-items-center justify-content-around o-hidden">
+                    <div class="ml-3">
+                        <div class="row mb-3">
+                            <div class="col text-center">
+                                <img style="width:100%" src="/assets/img/utils/logo.png" alt="LIGHTNITE">
+                            </div>
+                        </div>
+                        <div class="row mb-2 min-vh-40">
+                            <div class="col">
+                                <iframe class="rounded"
+                                    src="https://player.twitch.tv/?channel=satoshis_games&parent=events.lightnite.io&muted=true"
+                                    height="100%"
+                                    width="100%"
+                                    frameborder="0"
+                                    scrolling="no"
+                                    allowfullscreen="true">
+                                </iframe>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div id="mauticform_wrapper_giveway" class="mauticform_wrapper">
+                                    <form autocomplete="false" role="form" method="post"
+                                        action="https://e.lightnite.io/form/submit?formId=7" id="mauticform_giveway"
+                                        data-mautic-form="giveway" enctype="multipart/form-data">
+                                        <div class="mauticform-error" id="mauticform_giveway_error"></div>
+                                        <div class="mauticform-message" id="mauticform_giveway_message"></div>
+                                        <div class="mauticform-innerform">
+    
+                                            <div class="mauticform-page-wrapper mauticform-page-1"
+                                                data-mautic-form-page="1">
+                                                <div class="form-row">
+                                                    <div class="col-12">
+                                                        <div id="mauticform_giveway_email" data-validate="email"
+                                                            data-validation-type="email"
+                                                            class="mauticform-row mauticform-email mauticform-field-1 mauticform-required">
+                                                            <input id="mauticform_input_giveway_email"
+                                                                style="width:100%" name="mauticform[email]" value=""
+                                                                placeholder="me@example.com"
+                                                                class="form-control mb-2 mauticform-input" type="email">
+                                                            <span class="mauticform-errormsg"
+                                                                style="display: none;">type your email
+                                                                correctly!</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div id="mauticform_giveway_submit"
+                                                            class="mauticform-row mauticform-button-wrapper mauticform-field-2">
+                                                            <button type="submit" name="mauticform[submit]"
+                                                                style="width:100%" id="mauticform_input_giveway_submit"
+                                                                value=""
+                                                                class="btn btn-primary mauticform-button">PARTICIPATE</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="mauticform[formId]" id="mauticform_giveway_id"
+                                            value="7">
+                                        <input type="hidden" name="mauticform[return]" id="mauticform_giveway_return"
+                                            value="">
+                                        <input type="hidden" name="mauticform[formName]" id="mauticform_giveway_name"
+                                            value="giveway">
+    
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br><br>
+<section class="pt-0">
+    <div class="container aos-init aos-animate" data-aos-delay="400" data-aos="fade-up">
+        <div class="row justify-content-center mb-6">
+            <div class="col-xl-8 col-lg-9">
+                <h2 class="display-5 mx-xl-6 text-center">NFTs GIVEAWAY</h2>
+                <p class="lead">
+                    Welcome to the Light Nite events page 💛 Here you will find gaming tournaments, sessions, giveaways & much more. 
+                    We love gifting premium skins to our comunity, join us!
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-9">
+                <div class="video-poster rounded">
+                    <a data-fancybox="" href="https://www.youtube.com/watch?v=Sem9l2f_SKg"
+                        class="btn btn-lg btn-primary btn-round">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24"
+                            height="24" version="1.1" viewBox="0 0 24 24" class="injected-svg icon"
+                            data-src="assets/img/icons/theme/media/play.svg">
+                            <title>Icon For Play</title>
+                            <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                <rect width="24" height="24" x="0" y="0" opacity="0"></rect>
+                                <path fill="#000"
+                                    d="M9.82866499,18.2771971 L16.5693679,12.3976203 C16.7774696,12.2161036 16.7990211,11.9002555 16.6175044,11.6921539 C16.6029128,11.6754252 16.5872233,11.6596867 16.5705402,11.6450431 L9.82983723,5.72838979 C9.62230202,5.54622572 9.30638833,5.56679309 9.12422426,5.7743283 C9.04415337,5.86555116 9,5.98278612 9,6.10416552 L9,17.9003957 C9,18.1765381 9.22385763,18.4003957 9.5,18.4003957 C9.62084305,18.4003957 9.73759731,18.3566309 9.82866499,18.2771971 Z">
+                                </path>
+                            </g>
+                        </svg>
+                    </a>
+                    <img src="//d3cnkai8s35vbx.cloudfront.net/2020/07/gameplay4.png" class="rounded shadow-lg" alt="Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="has-divider">
+    <div class="container pt-0">
+        <div class="row text-center">
+            <div class="col-md-4 mb-3 mb-md-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                <div class="px-xl-2">
+                    <div class="process-circle bg-primary mb-3 d-inline-flex">1</div>
+                    <h4>Enter your details</h4>
+                    <p>
+                        There is only a limited amount of available keys to play the early-access - <b>Buy it now!</b>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <div class="px-xl-2">
+                    <div class="process-circle bg-primary-2 mb-3 d-inline-flex">2</div>
+                    <h4>Receive free skins</h4>
+                    <p>
+                        Kill enemies, level up and win the battle-royale game. Easy?
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                <div class="px-xl-2">
+                    <div class="process-circle bg-primary-3 mb-3 d-inline-flex">3</div>
+                    <h4><a href="https://lightnite.io">Get the game</a></h4>
+                    <p>
+                        Bring your skins to the game and start <code>#StackingSats</code> playing the <a target="_blank"
+                            href="https://blog.lightnite.io/getting-started/">Arena</a> with your squad.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divider">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="96"
+            preserveAspectRatio="none" version="1.1" viewBox="0 0 100 100" class="injected-svg bg-primary-alt"
+            data-src="assets/img/dividers/divider-1.svg">
+            <path d="M0,0 C40,33 66,52 75,52 C83,52 92,33 100,0 L100,100 L0,100 L0,0 Z"></path>
+        </svg>
+    </div>
+</section>
+<section class="has-divider bg-primary-alt">
+    <div class="container">
+        <div class="row justify-content-around align-items-center">
+            <div class="col-lg-6 col-md-8 d-flex flex-column">
+                <div data-aos="zoom-in" class="mb-3 aos-init aos-animate">
+                    <span class="badge badge-primary">EXCLUSIVE LIMITED EDITION</span>
+                    <h3 class="h1 mt-3">SIMPLY BEAUTIFUL</h3>
+                    <p class="lead text-justify">
+                        This giveaway includes premium digital content exclusively available for the 
+                        participants of the <code>Light Nite Session #1</code> with our guest <a href="https://strike.zaphq.io/">Strike</a>.
+                    </p>
+                </div>
+                <div class="row">
+                    <div data-aos="fade-up" data-aos-delay="100" class="col aos-init aos-animate">
+                        <div class="mt-2 text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="24" height="24" version="1.1" viewBox="0 0 24 24"
+                                class="injected-svg icon icon-md bg-primary text-center"
+                                data-src="/assets/img/icons/theme/food/miso-soup.svg">
+                                <title>Icon For Miso-soup</title>
+                                <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                    <rect width="24" height="24" x="0" y="0" opacity="0"></rect>
+                                    <path fill="#000"
+                                        d="M2,14 L22,14 L22,14 C22,18.9705627 17.9705627,23 13,23 L11,23 C6.02943725,23 2,18.9705627 2,14 Z">
+                                    </path>
+                                    <path fill="#000"
+                                        d="M16.7233675,1.41763641 C17.1846056,1.68393238 17.3426375,2.27371529 17.0763415,2.73495343 C17.070507,2.74505905 17.0644896,2.75505793 17.0582922,2.76494514 L10.5379559,13.1673758 C10.3897629,13.4038004 10.08104,13.4805452 9.83939289,13.3410302 C9.59774579,13.2015152 9.50984729,12.8957809 9.64050046,12.6492297 L15.3891015,1.80123745 C15.6384827,1.33063867 16.2221417,1.15130634 16.6927405,1.40068748 C16.7030512,1.40615136 16.7132619,1.41180193 16.7233675,1.41763641 Z M21.8768598,4.21665558 C22.2332333,4.61244851 22.2012776,5.22219993 21.8054847,5.57857348 C21.796813,5.58638154 21.7880002,5.59403156 21.7790508,5.60151976 L12.3633147,13.4799245 C12.1493155,13.6589835 11.8319871,13.6365715 11.6452796,13.4292118 C11.458572,13.221852 11.4694527,12.9039193 11.6698998,12.7098092 L20.4893582,4.16917098 C20.8719568,3.79866796 21.4824663,3.80847334 21.8529693,4.19107192 C21.8610869,4.19945456 21.8690517,4.20798385 21.8768598,4.21665558 Z"
+                                        opacity=".3"></path>
+                                </g>
+                            </svg>
+                            <h5>Premium Designs</h5>
+                        </div>
+                        <p class="text-justify">
+                            A highly focused to detail selection of skins designed by Strike and Satoshis Games for
+                            lightning network users.
+                        </p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200" class="col aos-init aos-animate">
+                        <div class="mt-2 text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="24" height="24" version="1.1" viewBox="0 0 24 24"
+                                class="injected-svg icon icon-md bg-primary"
+                                data-src="/assets/img/icons/theme/devices/gamepad-2.svg">
+                                <title>Icon For Gamepad#2</title>
+                                <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                    <rect width="24" height="24" x="0" y="0" opacity="0"></rect>
+                                    <path fill="#000" fill-rule="nonzero"
+                                        d="M12.9486833,8.31622777 L11.0513167,7.68377223 C11.8160243,5.38964935 13.0426772,3.95855428 14.7574644,3.5298575 C15.650287,3.30665184 17,1.86951059 17,1 L19,1 C19,2.79715607 17.0163797,5.02668149 15.2425356,5.4701425 C14.2906561,5.70811238 13.517309,6.61035065 12.9486833,8.31622777 Z"
+                                        opacity=".3"></path>
+                                    <path fill="#000"
+                                        d="M7.81798367,7 L16.2025685,7 C17.5586976,6.72948613 18.9494633,7.42723712 19.526457,8.72046451 L22.9501217,16.3939916 C23.4665806,17.5515411 23.1998005,18.9087734 22.2836331,19.7847233 L21.8392372,20.2096113 C21.8188115,20.2291404 21.7980738,20.2483405 21.7770321,20.2672042 C20.6904893,21.2412841 19.0200246,21.1501149 18.0459447,20.0635721 L15.2994684,17 L8.86456314,17 L6.11808685,20.0635721 C5.14400696,21.1501149 3.47354224,21.2412841 2.38699945,20.2672042 C2.36595778,20.2483405 2.34522009,20.2291404 2.3247944,20.2096113 L1.85770343,19.7630245 C0.952705301,18.8977536 0.680264004,17.5614241 1.17430192,16.4109277 L4.46146538,8.75590867 C5.02845054,7.43553556 6.44099515,6.71763226 7.81798367,7 Z M8,14 C9.1045695,14 10,13.1045695 10,12 C10,10.8954305 9.1045695,10 8,10 C6.8954305,10 6,10.8954305 6,12 C6,13.1045695 6.8954305,14 8,14 Z M17,12 C17.5522847,12 18,11.5522847 18,11 C18,10.4477153 17.5522847,10 17,10 C16.4477153,10 16,10.4477153 16,11 C16,11.5522847 16.4477153,12 17,12 Z M15,14 C15.5522847,14 16,13.5522847 16,13 C16,12.4477153 15.5522847,12 15,12 C14.4477153,12 14,12.4477153 14,13 C14,13.5522847 14.4477153,14 15,14 Z">
+                                    </path>
+                                </g>
+                            </svg>
+                            <h5>Secure Technology </h5>
+                        </div>
+                        <p class="text-justify">
+                            All the NFTs skins given on this event have been securized using Bitcoin technology through
+                            the Liquid Sidechain. <a target="_blank" href="https://blog.lightnite.io/nfts/">Read
+                                more</a>.
+                        </p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300" class="col aos-init aos-animate">
+                        <div class="mt-2 text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="24" height="24" version="1.1" viewBox="0 0 24 24"
+                                class="injected-svg icon icon-md bg-primary"
+                                data-src="/assets/img/icons/theme/general/thunder-move.svg">
+                                <title>Icon For Thunder-move</title>
+                                <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                    <rect width="24" height="24" x="0" y="0" opacity="0"></rect>
+                                    <path fill="#000"
+                                        d="M16.3740377,19.9389434 L22.2226499,11.1660251 C22.4524142,10.8213786 22.3592838,10.3557266 22.0146373,10.1259623 C21.8914367,10.0438285 21.7466809,10 21.5986122,10 L17,10 L17,4.47708173 C17,4.06286817 16.6642136,3.72708173 16.25,3.72708173 C15.9992351,3.72708173 15.7650616,3.85240758 15.6259623,4.06105658 L9.7773501,12.8339749 C9.54758575,13.1786214 9.64071616,13.6442734 9.98536267,13.8740377 C10.1085633,13.9561715 10.2533191,14 10.4013878,14 L15,14 L15,19.5229183 C15,19.9371318 15.3357864,20.2729183 15.75,20.2729183 C16.0007649,20.2729183 16.2349384,20.1475924 16.3740377,19.9389434 Z">
+                                    </path>
+                                    <path fill="#000"
+                                        d="M4.5,5 L9.5,5 C10.3284271,5 11,5.67157288 11,6.5 C11,7.32842712 10.3284271,8 9.5,8 L4.5,8 C3.67157288,8 3,7.32842712 3,6.5 C3,5.67157288 3.67157288,5 4.5,5 Z M4.5,17 L9.5,17 C10.3284271,17 11,17.6715729 11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L4.5,20 C3.67157288,20 3,19.3284271 3,18.5 C3,17.6715729 3.67157288,17 4.5,17 Z M2.5,11 L6.5,11 C7.32842712,11 8,11.6715729 8,12.5 C8,13.3284271 7.32842712,14 6.5,14 L2.5,14 C1.67157288,14 1,13.3284271 1,12.5 C1,11.6715729 1.67157288,11 2.5,11 Z"
+                                        opacity=".3"></path>
+                                </g>
+                            </svg>
+                            <h5>Unique Appearance </h5>
+                        </div>
+                        <p class="text-justify">
+                            Strike skins have been designed taking care of every little detail to bring an excellent
+                            decoration to your equipment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col align-items-center aos-init aos-animate" data-aos-delay="400" data-aos="fade-right">
+                <div class="row my-auto">
+                    <img class="rounded" src="/assets/img/utils/binance-guys.gif" alt="Binance GIF">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divider flip-x">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="96"
+            preserveAspectRatio="none" version="1.1" viewBox="0 0 100 100" class="injected-svg"
+            data-src="/assets/img/dividers/divider-1.svg">
+            <path d="M0,0 C40,33 66,52 75,52 C83,52 92,33 100,0 L100,100 L0,100 L0,0 Z"></path>
+        </svg>
+    </div>
+</section>
+<section>
+    <div class="container aos-init aos-animate" data-aos="fade-left">
+        <div class="row align-items-center justify-content-around o-hidden">
+            <div class="col-md-6 col-lg-5 mb-4 mb-md-0 hover-bg-primary-3 rounded">
+                <model-viewer camera-controls="" preload="" auto-rotate=""
+                    poster="//d2cb3hgqwhjsel.cloudfront.net/characters/striker/poster.png"
+                    src="//d2cb3hgqwhjsel.cloudfront.net/characters/striker/data"
+                    style="width: 100%; height: 500px;" alt="LIGHTNITE - STRIKER SKIN"
+                    ar-status="not-presenting">
+                </model-viewer>
+            </div>
+            <div class="col-lg-5 col-md-6">
+                <span class="badge badge-danger mb-2">1 unit</span>
+                <h3 class="h2">STRIKER</h3>
+                <p class="lead">From a different striking galaxy 🌠</p>
+                <a target="_blank" href="https://explorer.lightnite.io/28586a1b-1b40-4b30-9950-90897568afdd"
+                    class="lead hover-arrow">INSPECT NFT</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pt-0 mt-4 jarallax has-divider" data-jarallax-video="https://youtu.be/jIS8B7RNY0E"
+    data-video-start-time="14" data-video-end-time="20" data-speed="0.01">
+    <div class="container aos-init aos-animate" data-aos="fade-right">
+        <div class="row align-items-center justify-content-around flex-row-reverse o-hidden">
+            <div class="col-md-6 col-lg-5 mb-4 mb-md-0 hover-bg-primary-3 rounded">
+                <model-viewer data-aos="fade-left" camera-controls="" preload="" auto-rotate=""
+                    poster="//d2cb3hgqwhjsel.cloudfront.net/characters/strikegirl/poster.png"
+                    src="//d2cb3hgqwhjsel.cloudfront.net/characters/strikegirl/data"
+                    style="width: 100%; height: 500px;" alt="LIGHTNITE - STRIKEGIRL SKIN"
+                    ar-status="not-presenting" class="aos-init aos-animate">
+                </model-viewer>
+            </div>
+            <div class="col-lg-5 col-md-6">
+                <span class="badge badge-primary mb-2">5 units</span>
+                <h3 class="h2 text-light">STRIKEGIRL</h3>
+                <p class="lead text-light">Every god needs limitless power 👩‍🎤</p>
+                <a target="_blank" href="https://explorer.lightnite.io/1498c9bd-4dec-4220-b6cd-07cef148a170"
+                   class="lead" ><button class="btn btn-outline-primary">INSPECT NFT 👉</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="divider flip-x">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="96px"
+            viewBox="0 0 100 100" version="1.1" preserveAspectRatio="none" class="injected-svg bg-white"
+            data-src="assets/img/dividers/divider-4.svg">
+            <polygon fill="#ffffff" points="100 0 100 100 0 100"></polygon>
+        </svg>
+    </div>
+</section>
+<!--section>
+    <div class="container aos-init aos-animate" data-aos="fade-right">
+        <div class="row align-items-center justify-content-around o-hidden">
+            <div class="col-md-6 col-lg-5 mb-4 mb-md-0 hover-bg-primary-3 rounded">
+                <model-viewer data-aos="fade-left" camera-controls="" preload="" auto-rotate=""
+                    poster="//d2cb3hgqwhjsel.cloudfront.net/melee/strike-sword/poster.png"
+                    src="//d2cb3hgqwhjsel.cloudfront.net/melee/strike-sword/data"
+                    style="width: 100%; height: 500px;" alt="LIGHTNITE - COMMANDER SKIN" ar-status="not-presenting"
+                    class="aos-init aos-animate">
+                </model-viewer>
+            </div>
+            <div class="col-lg-5 col-md-6">
+                <span class="badge badge-primary mb-2">5 units</span>
+                <h3 class="h2">STRIKE SWORD</h3>
+                <p class="lead">There is no other weapon like this 🗡️</p>
+                <a target="_blank" href="https://explorer.lightnite.io/21e9bb69-072c-4867-8eea-3e82d32c06f1"
+                    class="lead hover-arrow">INSPECT NFT</a>
+            </div>
+        </div>
+    </div>
+</section-->
+<section>
+    <div class="container">
+        <div class="row align-items-center justify-content-around o-hidden">
+            <div class="col mb-2 mt-2">
+                <div id="card1" class="card card-icon-2 card-body justify-content-between hover-bg-primary-3">
+                    <model-viewer data-aos="zoom-in" camera-controls="" preload="" auto-rotate=""
+                        poster="//d2cb3hgqwhjsel.cloudfront.net/backpacks/strikepack/poster.png"
+                        src="//d2cb3hgqwhjsel.cloudfront.net/backpacks/strikepack/data"
+                        style="width: 100%; height: 500px;" alt="LIGHTNITE - STRIKEPACK SKIN"
+                        ar-status="not-presenting" class="aos-init aos-animate">
+                    </model-viewer>
+                    <h4 class="mb-1 text-center" id="title1">STRIKEPACK</h4>
+                    <small class="mb-2 text-center text-primary">5 units</small>
+                    <a href="https://explorer.lightnite.io/d2b29b21-d716-4188-b18a-fbeb86555f52" target="_blank"><button
+                            style="width:100%" class="mx-1 mt-2 btn btn-primary-2 btn-lg btn-loading">
+                            INSPECT NFT</button></a>
+                </div>
+            </div>
+            <div class="col mb-2 mt-2">
+                <div id="card2" class="card card-icon-2 card-body justify-content-between hover-bg-primary-3">
+                    <model-viewer data-aos="zoom-in" camera-controls="" preload="" auto-rotate=""
+                        poster="//d2cb3hgqwhjsel.cloudfront.net/hoverboards/strikeboard/poster.png"
+                        src="//d2cb3hgqwhjsel.cloudfront.net/hoverboards/strikeboard/data"
+                        style="width: 100%; height: 500px;" alt="LIGHTNITE - STRIKEBOARD SKIN"
+                        ar-status="not-presenting" class="aos-init aos-animate">
+                    </model-viewer>
+                    <h4 class="mb-1 text-center" id="title2">STRIKEBOARD</h4>
+                    <small class="mb-2 text-center text-primary">5 units</small>
+                    <a href="https://explorer.lightnite.io/0eb6ab50-829a-418a-957c-6180af84fcae" target="_blank"><button
+                            style="width:100%" class="mx-1 mt-2 btn btn-primary-2 btn-lg btn-loading">
+                            INSPECT NFT</button></a>
+                </div>
+            </div>
+            <div class="col mb-2 mt-2">
+                <div id="card3" class="card card-icon-2 card-body justify-content-between hover-bg-primary-3">
+                    <model-viewer data-aos="zoom-in" camera-controls="" preload="" auto-rotate=""
+                        model-viewer data-aos="fade-left" camera-controls="" preload="" auto-rotate=""
+                        poster="//d2cb3hgqwhjsel.cloudfront.net/melee/strike-sword/poster.png"
+                        src="//d2cb3hgqwhjsel.cloudfront.net/melee/strike-sword/data"
+                        style="width: 100%; height: 500px;" alt="LIGHTNITE - COMMANDER SKIN" ar-status="not-presenting"
+                        class="aos-init aos-animate">
+                    </model-viewer>
+                    <h4 class="mb-1 text-center" id="title3">STRIKE SWORD</h4>
+                    <small class="mb-2 text-center text-danger">5 units</small>
+                    <a href="https://explorer.lightnite.io/21e9bb69-072c-4867-8eea-3e82d32c06f1" target="_blank"><button
+                            style="width:100%" class="mx-1 mt-2 btn btn-primary-2 btn-lg btn-loading">
+                            INSPECT NFT</button></a>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $("#card1").mouseover(function () {
+                        $("#title1").addClass('text-light')
+                    });
+                    $("#card1").mouseout(function () {
+                        $("#title1").removeClass('text-light')
+                    });
+                    $("#card2").mouseover(function () {
+                        $("#title2").addClass('text-light')
+                    });
+                    $("#card2").mouseout(function () {
+                        $("#title2").removeClass('text-light')
+                    });
+                    $("#card3").mouseover(function () {
+                        $("#title3").addClass('text-light')
+                    });
+                    $("#card3").mouseout(function () {
+                        $("#title3").removeClass('text-light')
+                    });
+                })
+            </script>
+        </div>
+    </div>
+</section>
+<div class="divider flip-x">
+    <img class="bg-primary-3" src="/assets/img/dividers/divider-5.svg" alt="divider graphic" data-inject-svg />
+</div>
+<section class="bg-primary-3 text-light" style="padding:0%; padding-top:6rem;">
+    <div class="container">
+        <div class="row justify-content-center text-center mb-6">
+            <div class="col-xl-8 col-lg-9">
+                <h2 class="display-4 mx-xl-6">Explore Lightnite’s art</h2>
+                <p class="lead">
+                    Enjoy our a cartoonish low-poly design. Explore the map of the game, the sci-fi characters and
+                    the cipherpunk environment.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div data-flickity='{ "imagesLoaded": true, "wrapAround": true, "autoPlay":true }'>
+                    <div class="carousel-cell text-center mx-3">
+                        <img src="//d3cnkai8s35vbx.cloudfront.net/2020/07/gameplay1.png" class="rounded" alt="GAMEPLAY 1">
+                    </div>
+                    <div class="carousel-cell text-center mx-3">
+                        <img src="//d3cnkai8s35vbx.cloudfront.net/2020/07/gameplay2.png" class="rounded" alt="GAMEPLAY 2">
+                    </div>
+                    <div class="carousel-cell text-center mx-3">
+                        <img src="//d3cnkai8s35vbx.cloudfront.net/2020/07/gameplay3.png" class="rounded" alt="GAMEPLAY 3">
+                    </div>
+                    <div class="carousel-cell text-center mx-3">
+                        <img src="//d3cnkai8s35vbx.cloudfront.net/2020/07/gameplay5.png" class="rounded" alt="GAMEPLAY 3">
+                    </div>
+                    <div class="carousel-cell text-center mx-3">
+                        <img src="//d3cnkai8s35vbx.cloudfront.net/2020/07/gameplay6.png" class="rounded" alt="GAMEPLAY 3">
+                    </div>
+                    <div class="carousel-cell text-center mx-3">
+                        <img src="//d3cnkai8s35vbx.cloudfront.net/2020/07/gameplay4.png" class="rounded" alt="GAMEPLAY 4">
+                    </div>
+                </div>
+            </div>
+        </div><br><br><br>
+        <div class="row text-center mb-5">
+            <div class="col">
+                <small class="text-uppercase">FEATURED ON</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul class="d-flex flex-wrap justify-content-center list-unstyled">
+                    <li class="mx-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <a target="_blank"
+                            href="https://www.nasdaq.com/articles/lightnite%3A-like-fortnite-but-with-bitcoin-powered-by-lightning-2019-10-21"><img
+                                class="icon icon-logo icon-md opacity-40" src="/assets/img/news/nasdaq.svg" alt="icon"
+                                style="width:200px; height:auto" data-inject-svg /></a>
+                    </li>
+                    <li class="mx-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <a target="_blank"
+                            href="https://www.ccn.com/fortnite-clone-lightnite-is-a-battle-royale-shooter-with-bitcoin"><img
+                                class="icon icon-logo icon-md opacity-40" src="/assets/img/news/ccn.png" alt="icon"
+                                style="width:200px; height:auto" /></a>
+                    </li>
+                    <li class="mx-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <a target="_blank"
+                            href="https://cointelegraph.com/news/fortnite-meets-bitcoin-lightning-network-in-new-lightnite-video-game"><img
+                                class="icon icon-logo icon-md opacity-40" src="/assets/img/news/coin.png" alt="icon"
+                                style="width:200px; height:auto" /></a>
+                    </li>
+                    <li class="mx-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <a target="_blank" href="https://www.chainnews.com/tag_13343.htm"><img
+                                class="icon icon-logo icon-md opacity-40" src="/assets/img/news/chain.svg" alt="icon"
+                                style="width:200px; height:auto" data-inject-svg /></a>
+                    </li>
+                    <li class="mx-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <a target="_blank"
+                            href="https://cryptonews.com/news/new-crypto-game-is-coming-earn-or-lose-bitcoin-in-a-battle-r-4902.htm"><img
+                                class="icon icon-logo icon-md opacity-40" src="/assets/img/news/crypto.svg" alt="icon"
+                                style="width:200px; height:auto" data-inject-svg /></a>
+                    </li>
+                    <li class="mx-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <a target="_blank"
+                            href="https://bitcoinmagazine.com/articles/lightnite-like-fortnite-but-with-bitcoin-powered-by-lightning"><img
+                                class="icon icon-logo icon-md opacity-40" src="/assets/img/news/bitcoinmagazine.svg"
+                                alt="icon" style="width:200px; height:auto" data-inject-svg /></a>
+                    </li>
+                    <li class="mx-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <a target="_blank"
+                            href="https://www.criptonoticias.com/comunidad/arte-entretenimiento/satoshis-games-enciende-batalla-juego-lightnite-recompensas-bitcoins/"><img
+                                class="icon icon-logo icon-md opacity-40" src="/assets/img/news/criptonoticias.png"
+                                alt="icon" style="width:200px; height:auto" /></a>
+                    </li>
+                    <li class="mx-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <a target="_blank" href="https://blockduo.com/lightnite/"><img
+                                class="icon icon-logo icon-md opacity-40"
+                                src="//blockduo.com/wp-content/uploads/2020/01/blockduo-logo-white-transparent-1024x233.png"
+                                alt="icon" style="width:200px; height:auto" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+@endsection

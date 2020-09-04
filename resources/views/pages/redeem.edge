@@ -1,0 +1,422 @@
+@layout('layouts.landing.empty')
+{{--  Load content  --}}
+@section('content')
+@if(type == 'success')
+<div style="margin-bottom: 0px" class="alert alert-success alert-dismissible fade show text-center fixed-top"
+    role="alert">
+    <strong>🤟 Congratulations!</strong> {{msg}}</a>
+</div>
+@endif
+<div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-primary-3 text-light border-0">
+            <img src="//d3cnkai8s35vbx.cloudfront.net/2020/07/gameplay5.png" alt="Image"
+                class="bg-image rounded opacity-50">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <img class="icon bg-white" src="/assets/img/icons/interface/cross.svg" alt="cross interface icon"
+                        data-inject-svg />
+                </button>
+                <div class="m-xl-6 m-3 text-center">
+                    <div class="mb-4">
+                        <div class="custom-control custom-switch">
+                            <input checked type="checkbox" class="custom-control-input" id="customSwitch1">
+                            <label id="checkbox_text" class="custom-control-label" for="customSwitch1">PAY WITH CARD
+                                💳</label>
+                        </div>
+                        <h4 class="display-4 mt-3">PURCHASING LIGHT⚡NITE</h4>
+                    </div>
+                    <div class="d-md-flex mb-3 justify-content-center">
+                        <button id="buy_btn" type="button" style="width:100%"
+                            class="mx-1 btn btn-danger btn-lg btn-loading">
+                            <img class="icon" src="assets/img/icons/theme/code/loading.svg" alt="loading icon"
+                                data-inject-svg />
+                            BUY FOR $12</button>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col text-small text-muted justify-content-center text-center">
+                        <div class="row">
+                            <div class="col text-center">
+                                <p class="badge badge-pill badge-danger"><b>40% DISCOUNT</b> APPLIED ONLY FOR <span
+                                        id="discountLabel"></span></p>
+                            </div>
+                        </div>
+                        We’ll never share your details with third parties
+                        <br class="visible-md" />View our <a href="/privacy">Privacy Policy</a> for more info.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="giveawayModal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " style="height:600px" role="document">
+        <div class="modal-content border-0" style="height:600px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="title-giveaway">SKIN</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="height: 300px">
+                <div class="container">
+                    <div class="row">
+                        <model-viewer id="skinImage" camera-controls="" preload="" auto-rotate=""
+                            poster="//d2cb3hgqwhjsel.cloudfront.net/armor/futuristic-vest/poster.png"
+                            src="//d2cb3hgqwhjsel.cloudfront.net/armor/futuristic-vest/data" alt="Futuristic Vest"
+                            style="width:100%; height:100%;" class="bg-image rounded" ar-status="not-presenting">
+                        </model-viewer>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <p id="rarity" class="badge badge-pill badge-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-justify">
+                            <p>
+                                This skin has been given away to <b id="winnerEmail" class="text-primary-3"></b> as a
+                                result of a giveaway event.
+                                Because you are the winner of this giveaway we have also gifted you with a                                  
+                                <b class="text-danger">40% discount</b>
+                                to buy Light Nite game where you will be able to enjoy it (available just for the next 60 min) {{ auth.user }} Enjoy 💛
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="text-center">SELECT A METHOD</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button id="redeemToWalletBtn" style="width:100%;" class="btn btn-primary">REDEEM TO WALLET
+                                👛</button>
+                        </div>
+                        <div class="col">
+                            <button id="buyGameBtn" style="width:100%;" class="btn btn-primary-3">REDEEM IN
+                                LIGHT⚡NITE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="withdrawSkin" role="dialog" aria-labelledby="withdrawSkin">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="withdraw-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="card-body">
+                            <H4 class="text-center">IMPORTANT INFORMATION</H4>
+                            <div style="margin-bottom: 0px; padding-right:20px"
+                                class="alert alert-warning alert-dismissible fade show text-justify" role="alert">
+                                Withdrawing a NFT to your liquid wallet gives you ownership over it, However,
+                                <b class="text-primary">you will not be able to use it within the game</b>.
+                                Withdrawing a NFT requires <b>$1</b> in bitcoin to cover the sidechain fees 🔗
+                            </div><br><br>
+                            <p class="text-muted text-justify">
+                                Sending the liquid asset to a wrong liquid address will result on an <b
+                                    class="text-primary">irreversible lost of the skin</b>. Hence, please double check
+                                you are sending the skin to a correct desired address.
+                            </p>
+                            <br>
+                            <div class="dropdown-divider"></div><br><br>
+                            <div id="understand_box_address" class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="understand_address">
+                                <label class="custom-control-label" for="understand_address">I have read &
+                                    understand the information displayed above.</label>
+                            </div>
+                            <div id="withdrawalBody" style="display: none;" class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Liquid Address</span>
+                                </div>
+                                <input required type="text" name="_liquidAddress" class="form-control form-control-lg"
+                                    placeholder="eg: VJLGfcaEARcSHxsXYKn3ZVjEeBxhz88Z3btMtUcT...."
+                                    aria-label="liquid address" aria-describedby="liquid address">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="withdrawAddress" style="width:100%" class="mx-1 btn btn-primary-2 btn-lg disabled">
+                    WITHDRAW SKIN</button>
+                <button id="confirm-withdrawal" style="width:100%; display:none;"
+                    class="mx-1 btn btn-primary btn-lg btn-loading disabled">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                        height="24px" viewBox="0 0 24 24" version="1.1" class="injected-svg icon"
+                        data-src="/assets/img/icons/theme/code/loading.svg">
+                        <title>Icon For Loading</title>
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g>
+                                <polygon points="0 0 24 0 24 24 0 24" opacity="0"></polygon>
+                            </g>
+                            <path
+                                d="M12,4 L12,6 C8.6862915,6 6,8.6862915 6,12 C6,15.3137085 8.6862915,18 12,18 C15.3137085,18 18,15.3137085 18,12 C18,10.9603196 17.7360885,9.96126435 17.2402578,9.07513926 L18.9856052,8.09853149 C19.6473536,9.28117708 20,10.6161442 20,12 C20,16.418278 16.418278,20 12,20 C7.581722,20 4,16.418278 4,12 C4,7.581722 7.581722,4 12,4 Z"
+                                fill="#000000" fill-rule="nonzero"
+                                transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) ">
+                            </path>
+                        </g>
+                    </svg>
+                    CONFIRM WITHDRAWAL</button>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" name="_sku" value="sku_Hm0XFInKlkNKag">
+<input type="hidden" name="_assetId" value="">
+<input type="hidden" name="_winnerEmail" value="">
+<section class="text-light jarallax min-vh-100 py-5" data-jarallax-video="{{video}}" data-video-start-time="0"
+    data-speed="0.1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto text-center">
+                <a href="/">
+                    <img src="/assets/img/utils/logo.png" alt="logo" style="width:40%">
+                </a>
+            </div>
+        </div>
+        <div class="row justify-content-center pt-6">
+            <div class="col-xl-4 col-lg-5 col-md-6">
+                <div id="redeemBox">
+                    <div class="text-center mb-4">
+                        <h1 class="mb-1">REDEEM VOUCHER</h1>
+                        <span>Insert your voucher code to redeem your gift</span>
+                    </div>
+                    <div class="form-group">
+                        @if(code)
+                            <input type="voucher" name="_voucher" placeholder="eg: 83b484c4-9347-4ac1-adea-0fd2c8a70bac" value="{{code}}"
+                                class="form-control">
+                        @else
+                            <input type="voucher" name="_voucher" placeholder="eg: 83b484c4-9347-4ac1-adea-0fd2c8a70bac" value="{{code}}"
+                            class="form-control">
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <button id="redeemBtn" style="width:100%" class="btn-block btn btn-primary btn-lg btn-loading">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="injected-svg icon"
+                                data-src="assets/img/icons/theme/code/loading.svg">
+                                <title>Icon For Loading</title>
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g>
+                                        <polygon points="0 0 24 0 24 24 0 24" opacity="0"></polygon>
+                                    </g>
+                                    <path
+                                        d="M12,4 L12,6 C8.6862915,6 6,8.6862915 6,12 C6,15.3137085 8.6862915,18 12,18 C15.3137085,18 18,15.3137085 18,12 C18,10.9603196 17.7360885,9.96126435 17.2402578,9.07513926 L18.9856052,8.09853149 C19.6473536,9.28117708 20,10.6161442 20,12 C20,16.418278 16.418278,20 12,20 C7.581722,20 4,16.418278 4,12 C4,7.581722 7.581722,4 12,4 Z"
+                                        fill="#000000" fill-rule="nonzero"
+                                        transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) ">
+                                    </path>
+                                </g>
+                            </svg>
+                            REDEEM 🎁</button>
+                    </div>
+                </div>
+                <div id="giftBox" class="form-group" style="display:none;">
+                    <a href="#giveawayModal" id="giftBtn" data-toggle="modal" style="width:100%;"
+                        class="btn btn-primary-3 btn-lg mt-3">OPEN GIFT 🧧</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function isEmail(email) {
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return regex.test(email);
+    }
+    function buyGame(type, assetId) {
+        let stripe = Stripe('pk_live_B1T8Y9sGAVVTM2MTLn0JWbLM00yhTstdbG');
+        // let stripe = Stripe('pk_test_w2fRiV1Rz161EL5HqiNwYz0j00HLaQjUnB');
+        if (isEmail($("[name=_winnerEmail]").val())) {
+            $("#buy_btn").addClass("btn-loading-animate")
+            var request = $.ajax({
+                url: "/api/v1/add/contact",
+                data: {
+                    email: $("[name=_winnerEmail]").val(),
+                    assetId: $("[name=_assetId]").val(),
+                    type
+                },
+                type: 'post',
+                headers: {
+                    'x-csrf-token': $('[name=_csrf]').val()
+                },
+                dataType: 'json'
+            });
+
+            request.done(function (data) {
+                if (type === 'bitcoin') {
+                    window.btcpay.showInvoice(data.id);
+                    window.btcpay.onModalWillLeave((e) => {
+                        $('#buy_btn').removeClass('btn-loading-animate')
+                    });
+                } else {
+                    const sku = $('[name=_sku]').val()
+                    stripe.redirectToCheckout({
+                        items: [{ sku, quantity: 1 }],
+                        successUrl: 'https://lightnite.io/msg=success',
+                        cancelUrl: 'https://lightnite.io/msg=error',
+                        customerEmail: $("[name=_winnerEmail]").val(),
+                        clientReferenceId: $("[name=_assetId]").val()
+                    }).then(function (result) {
+                        if (result.error) {
+                            $('#error-message').text(result.error.message)
+                        }
+                    });
+                }
+            });
+
+            request.fail(function (jqXHR, textStatus) {
+                console.log(jqXHR, textStatus)
+            });
+        }
+    }
+    function withdrawSkin() {
+        $('#confirm-withdrawal').addClass('btn-loading-animate')
+        $('#confirm-withdrawal').prop('disabled', true)
+        var request = $.ajax({
+            url: "/api/v1/withdraw",
+            type: 'post',
+            data: {
+                email: $("[name=_winnerEmail]").val(),
+                assetId: $("[name=_assetId]").val(),
+                address: $("[name=_liquidAddress]").val()
+            },
+            headers: {
+                'x-csrf-token': $('[name=_csrf]').val()
+            },
+            dataType: 'json'
+        });
+        request.done(function (data) {
+            // console.log(data);
+            window.btcpay.showInvoice(data.id);
+            window.btcpay.onModalWillLeave((e) => {
+                $('#confirm-withdrawal').removeClass('btn-loading-animate')
+            });
+        });
+        request.fail(function (jqXHR, textStatus) {
+            console.log(jqXHR, textStatus)
+        });
+    }
+    function redeemVoucher() {
+        $("#redeemBtn").addClass("btn-loading-animate")
+        $('#redeemBtn').prop('disabled', true)
+        var request = $.ajax({
+            url: "/api/v1/voucher/redeem",
+            data: {
+                voucher: $("[name=_voucher]").val()
+            },
+            type: 'post',
+            headers: {
+                'x-csrf-token': $('[name=_csrf]').val()
+            },
+            dataType: 'json'
+        });
+        request.done(function (data) {
+            $("#redeemBtn").removeClass("btn-loading-animate")
+            $('#redeemBtn').prop('disabled', false)
+            $("[name=_voucher]").val('')
+            if (data.type === 'success') {
+                showNotification(data.type, data.msg)
+                $('#giveawayModal').modal('show')
+                $('#title-giveaway').text(data.item.name.toUpperCase() + ' SKIN')
+                $('#winnerEmail').text(data.winner)
+                $('#skinImage').attr('poster', data.item.image + 'poster.png')
+                $('#skinImage').attr('src', data.item.image + 'data')
+                $('#rarity').text(data.item.supply + ' SKIN')
+                $('#withdraw-title').text('WITHDRAW ' + data.item.name.toUpperCase() + ' SKIN')
+                $("[name=_assetId]").val(data.item.assetId)
+                $("[name=_winnerEmail]").val(data.winner)
+                $('#discountLabel').text(data.winner.toUpperCase())
+                setTimeout(() => {
+                    $('#giftBox').show()
+                    $('#redeemBox').hide()
+                }, 1500);
+            } else {
+                showNotification(data.type, data.msg)
+            }
+        });
+        request.fail(function (jqXHR, textStatus) {
+            $("#redeemBtn").removeClass("btn-loading-animate")
+            $('#redeemBtn').prop('disabled', false)
+            console.log(jqXHR, textStatus)
+            $("[name=_voucher]").val('')
+        });
+    }
+    $(document).ready(function () {
+        $('#confirm-withdrawal').on('click', function () {
+            withdrawSkin()
+        })
+        $("#understand_address").change(function () {
+            if (this.checked) {
+                $("#withdrawAddress").removeClass("disabled")
+            } else {
+                $("#withdrawAddress").addClass("disabled")
+            }
+        });
+        $('#withdrawAddress').on('click', function (e) {
+            if ($('#understand_address').is(':checked')) {
+                $("#understand_box_address").hide()
+                $("#importAsset").hide()
+                $("#withdrawAddress").hide()
+                $("#confirm-withdrawal").show()
+                $("#withdrawalBody").show()
+            }
+        });
+        $('[name=_liquidAddress]').on('keypress', function (e) {
+            if (e.which == 13) {
+                withdrawSkin()
+            }
+        });
+        $("#buy_btn").click(function () {
+            if ($('#customSwitch1').is(':checked')) {
+                buyGame('card')
+            } else {
+                buyGame('bitcoin')
+            }
+        });
+        $("#buyGameBtn").click(function () {
+            $('#giveawayModal').modal('hide')
+            $('#buyModal').modal('show')
+        });
+        $("#redeemToWalletBtn").click(function () {
+            $('#giveawayModal').modal('hide')
+            $('#withdrawSkin').modal('show')
+        });
+        $('#customSwitch1').change(function () {
+            $('#buy_btn').removeClass('btn-loading-animate')
+            if (this.checked) {
+                $('#checkbox_text').text('PAY WITH CARD 💳')
+            } else {
+                $('#checkbox_text').text('PAY WITH BITCOIN ₿')
+            }
+        });
+        $('#redeemBtn').on('click', function () {
+            redeemVoucher()
+        })
+        $('[name=_voucher]').on('keypress', function (e) {
+            if (e.which == 13) {
+                redeemVoucher()
+            }
+        });
+    })
+</script>
+@endsection

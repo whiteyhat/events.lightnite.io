@@ -1,0 +1,31 @@
+.myAlert{
+    position:fixed; 
+    top: 0px; 
+    left: 0px; 
+    width: 100%;
+    z-index:9999; 
+    border-radius:0px
+}
+.underline {
+color: #fff;
+text-transform: uppercase;
+text-decoration: none;
+display: inline-block;
+position: relative;
+}
+.underline:after {    
+background: none repeat scroll 0 0 transparent;
+bottom: 0;
+content: "";
+display: block;
+height: 1.7px;
+left: 50%;
+position: absolute;
+background: #fff;
+transition: width 0.3s ease 0s, left 0.3s ease 0s;
+width: 0;
+}
+.underline:hover:after { 
+width: 100%; 
+left: 0; 
+}
