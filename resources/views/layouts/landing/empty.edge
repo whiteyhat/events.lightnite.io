@@ -119,6 +119,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.5.10/plyr.polyfilled.min.js"></script>
     <!-- Prism (displays formatted code boxes) -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js" integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.31/moment-timezone.min.js" integrity="sha512-GqWOXT1UPIvzojfXEPf2ByPu4S0iwX0SfFfZ985fePNpTJPuiWKn47mXd0iyfcpcjcmM/HIRtvrd5TsR87A0Zg==" crossorigin="anonymous"></script>
     <!-- ScrollMonitor (manages events for elements scrolling in and out of view) -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/scrollmonitor/1.2.0/scrollMonitor.js"></script>
     <!-- Smooth scroll (animation to links in-page)-->
@@ -130,6 +132,11 @@
     <script src="https://js.stripe.com/v3"></script>
     <!-- Removes page load animation when window is finished loading -->
     <script type="text/javascript">
+    // var nextYear = moment.tz("2020-09- 00:00", "America/Sao_Paulo");
+
+    // $('#clock').countdown(nextYear.toDate(), function(event) {
+    //   $(this).html(event.strftime('%D days %H:%M:%S'));
+    // });
       window.addEventListener("load", function () {    document.querySelector('body').classList.add('loaded');  });
     </script>
     {{ csrfField() }}
