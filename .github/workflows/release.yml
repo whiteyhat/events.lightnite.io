@@ -16,8 +16,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Get branch name
-      uses: nelonoel/branch-name@v1
     - name: Prepare docker deployment
       if: success() && github.event_name != 'pull_request'
       id: prepare
@@ -26,7 +24,7 @@ jobs:
         # PROJECT_NAME=echo $REPO_NAME | awk '{split($0,a,"/"); print a[2]}'
         DOCKER_IMAGE="${{ secrets.DOCKER_REGISTRY }}/lightnite-events"
         DOCKER_PLATFORMS=linux/amd64
-        VERSION=${BRANCH_NAME}
+        VERSION=latest
 
         if [[ $GITHUB_REF == refs/tags/* ]]; then
           VERSION=${GITHUB_REF#refs/tags/v}
